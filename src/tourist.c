@@ -80,3 +80,45 @@ void sort_places(int choice) {
         printf("\nInvalid choice.\n");
 }
 
+// filter by category
+void filterByCategory(struct Place *head, char category[]) {
+    struct Place *temp = head;
+    int found = 0;
+
+    printf("\nPlaces in category: %s\n", category);
+    while (temp != NULL) {
+        if (strcmp(temp->type, category) == 0) {
+            printf("Name: %s\n", temp->name);
+            printf("Category: %s\n", temp->type);
+            printf("Rating: %f\n", temp->rating);
+            printf("Distance: %f km\n\n", temp->type);
+            found = 1;
+        }
+        temp = temp->next;
+    }
+
+    if (found == 0)
+        printf("No places found in category '%s'.\n", category);
+}
+
+// search by name
+void searchByName(struct Place *head, char searchName[]) {
+    struct Place *temp = head;
+    int found = 0;
+
+    while (temp != NULL) {
+        if (strcmp(temp->name, searchName) == 0) {
+            printf("\nPlace Found:\n");
+            printf("Name: %s\n", temp->name);
+            printf("Category: %s\n", temp->category);
+            printf("Rating: %f\n", temp->rating);
+            printf("Distance: %f km\n", temp->distance);
+            found = 1;
+            break;
+        }
+        temp = temp->next;
+    }
+
+    if (found == 0)
+        printf("\nNo place found with name '%s'.\n", searchName);
+}
