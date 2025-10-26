@@ -5,7 +5,7 @@ import math
 
 # --- Configuration ---
 API_KEY = "AIzaSyAbptfQ5I0tzRLHbXk5cjkzV7u5JECtSpk"  
-BASE_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json"
+BASE_URL = ""
 CSV_FILE_NAME = "dehradun_data.csv"
 LOCATION_QUERY = "Dehradun"
 
