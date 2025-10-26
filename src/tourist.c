@@ -1,124 +1,137 @@
+#include "tourist.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_NAME_LEN 128
-#define MAX_TYPE_LEN 32
+#define LINE_BUF 512
 
-typedef struct Place{
-    char name[MAX_NAME_LEN];
-    char type[MAX_TYPE_LEN];
-    double rating;
-    double distance_km;
-    struct Place* next;
-}Place ;
-
-Place* head=NULL;
-
-void print_place(Place* p) {
-    printf("\nName: %s\nType: %s\nDistance: %.2f km\nRating: %.1f\n",
-           p->name, p->type, p->distance_km, p->rating);
+// CSV format assumed: id,name,type,rating,distance
+Place* create_place(int id, const char *name, const char *type, double rating, double distance) {
+    Place *p = malloc(sizeof(Place));
+    p->id = id;
+    strncpy(p->name, name, sizeof(p->name)-1); p->name[sizeof(p->name)-1]=0;
+    strncpy(p->type, type, sizeof(p->type)-1); p->type[sizeof(p->type)-1]=0;
+    p->rating = rating;
+    p->distance = distance;
+    p->next = NULL;
+    return p;
 }
 
-// display places
-void display(){
-    if(head==NULL){
-        printf("No places found\n");
-        return;
+Place* load_places_from_csv(const char *csvfile) {
+    FILE *f = fopen(csvfile, "r");
+    if (!f) return NULL;
+    Place *head = NULL, *tail = NULL;
+    char line[LINE_BUF];
+    // skip header if present by checking first line contains non-digit start
+    while (fgets(line, sizeof(line), f)) {
+        if (line[0] == '\n' || line[0]=='\r') continue;
+        // Trim newline
+        size_t ln = strlen(line);
+        if (ln && (line[ln-1]=='\n' || line[ln-1]=='\r')) line[ln-1]=0;
+        int id;
+        char name[128], type[64];
+        double rating, dist;
+        // handle quoted name containing commas
+        char *p = line;
+        // parse id
+        char *tok = strtok(p, ",");
+        if (!tok) continue;
+        id = atoi(tok);
+        // name
+        tok = strtok(NULL, ",");
+        if (!tok) continue;
+        strncpy(name, tok, sizeof(name)-1); name[sizeof(name)-1]=0;
+        // type
+        tok = strtok(NULL, ",");
+        if (!tok) continue;
+        strncpy(type, tok, sizeof(type)-1); type[sizeof(type)-1]=0;
+        // rating
+        tok = strtok(NULL, ",");
+        if (!tok) continue;
+        rating = atof(tok);
+        // distance
+        tok = strtok(NULL, ",");
+        if (!tok) continue;
+        dist = atof(tok);
+        Place *pl = create_place(id, name, type, rating, dist);
+        if (!head) head = tail = pl;
+        else { tail->next = pl; tail = pl; }
     }
-    for(Place* curr = head; curr != NULL; curr = curr->next){
-        print_place(curr);
+    fclose(f);
+    return head;
+}
+
+void free_places(Place *head) {
+    while (head) {
+        Place *t = head; head = head->next; free(t);
     }
 }
 
-// sort by rating and distance
-void sort_places(int choice) {
-    if (head == NULL || head->next == NULL) {
-        printf("No places available to sort.\n");
-        return;
+void print_places(Place *head) {
+    printf("%-4s %-35s %-12s %-6s %-8s\n", "ID", "Name", "Type", "Rating", "Dist(km)");
+    printf("-------------------------------------------------------------------------------\n");
+    while (head) {
+        printf("%-4d %-35s %-12s %-6.1f %-8.2f\n",
+            head->id, head->name, head->type, head->rating, head->distance);
+        head = head->next;
     }
+}
 
-    Place *i, *j;
-    char tempName[MAX_NAME_LEN], tempType[MAX_TYPE_LEN];
-    double tempDist, tempRating;
+// helper: convert linked list to array
+static Place** list_to_array(Place *head, int *out_n) {
+    int n=0; Place *cur=head;
+    while (cur) { n++; cur=cur->next; }
+    if (out_n) *out_n = n;
+    if (n==0) return NULL;
+    Place **arr = malloc(sizeof(Place*)*n);
+    cur = head; for (int i=0;i<n;i++) { arr[i]=cur; cur=cur->next; }
+    return arr;
+}
 
-    for (i = head; i != NULL; i = i->next) {
-        for (j = i->next; j != NULL; j = j->next) {
-            int shouldSwap = 0;
-            // Sort by distance (ascending)
-            if (choice == 1 && i->distance_km > j->distance_km) {
-                shouldSwap = 1;
-            }
-            // Sort by rating (descending)
-            else if (choice == 2 && i->rating < j->rating) {
-                shouldSwap = 1;
-            }
+static Place* rebuild_list_from_array(Place **arr, int n) {
+    if (n==0) return NULL;
+    for (int i=0;i<n-1;i++) arr[i]->next = arr[i+1];
+    arr[n-1]->next = NULL;
+    Place *head = arr[0];
+    free(arr);
+    return head;
+}
 
-            if (shouldSwap) {
-                strcpy(tempName, i->name);
-                strcpy(tempType, i->type);
-                tempDist = i->distance_km;
-                tempRating = i->rating;
+Place* sort_places_by_distance(Place *head) {
+    int n; Place **arr = list_to_array(head, &n);
+    if (!arr) return NULL;
+    // simple insertion sort (n small)
+    for (int i=1;i<n;i++) {
+        Place *key = arr[i];
+        int j = i-1;
+        while (j>=0 && arr[j]->distance > key->distance) { arr[j+1]=arr[j]; j--; }
+        arr[j+1]=key;
+    }
+    return rebuild_list_from_array(arr, n);
+}
 
-                strcpy(i->name, j->name);
-                strcpy(i->type, j->type);
-                i->distance_km = j->distance_km;
-                i->rating = j->rating;
+Place* sort_places_by_rating(Place *head) {
+    int n; Place **arr = list_to_array(head, &n);
+    if (!arr) return NULL;
+    for (int i=1;i<n;i++) {
+        Place *key = arr[i];
+        int j = i-1;
+        while (j>=0 && arr[j]->rating < key->rating) { arr[j+1]=arr[j]; j--; } // desc
+        arr[j+1]=key;
+    }
+    return rebuild_list_from_array(arr, n);
+}
 
-                strcpy(j->name, tempName);
-                strcpy(j->type, tempType);
-                j->distance_km = tempDist;
-                j->rating = tempRating;
-            }
+Place* filter_places_by_type(Place *head, const char *type) {
+    Place *res_head = NULL, *res_tail = NULL;
+    Place *cur = head;
+    while (cur) {
+        if (strstr(cur->type, type) != NULL) {
+            Place *copy = create_place(cur->id, cur->name, cur->type, cur->rating, cur->distance);
+            if (!res_head) res_head = res_tail = copy;
+            else { res_tail->next = copy; res_tail = copy; }
         }
+        cur = cur->next;
     }
-    if (choice == 1)
-        printf("\nSorted by distance (nearest → farthest)\n");
-    else if (choice == 2)
-        printf("\nSorted by rating (highest → lowest)\n");
-    else
-        printf("\nInvalid choice.\n");
-}
-
-// filter by category
-void filterByCategory(struct Place *head, char category[]) {
-    struct Place *temp = head;
-    int found = 0;
-
-    printf("\nPlaces in category: %s\n", category);
-    while (temp != NULL) {
-        if (strcmp(temp->type, category) == 0) {
-            printf("Name: %s\n", temp->name);
-            printf("Category: %s\n", temp->type);
-            printf("Rating: %f\n", temp->rating);
-            printf("Distance: %f km\n\n", temp->type);
-            found = 1;
-        }
-        temp = temp->next;
-    }
-
-    if (found == 0)
-        printf("No places found in category '%s'.\n", category);
-}
-
-// search by name
-void searchByName(struct Place *head, char searchName[]) {
-    struct Place *temp = head;
-    int found = 0;
-
-    while (temp != NULL) {
-        if (strcmp(temp->name, searchName) == 0) {
-            printf("\nPlace Found:\n");
-            printf("Name: %s\n", temp->name);
-            printf("Category: %s\n", temp->category);
-            printf("Rating: %f\n", temp->rating);
-            printf("Distance: %f km\n", temp->distance);
-            found = 1;
-            break;
-        }
-        temp = temp->next;
-    }
-
-    if (found == 0)
-        printf("\nNo place found with name '%s'.\n", searchName);
+    return res_head;
 }
