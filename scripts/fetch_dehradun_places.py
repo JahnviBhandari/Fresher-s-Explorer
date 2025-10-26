@@ -4,7 +4,7 @@ import time
 import math
 
 # --- Configuration ---
-API_KEY = "API key"  # 🔒 Replace with your actual Google Maps API key
+API_KEY = "AIzaSyAbptfQ5I0tzRLHbXk5cjkzV7u5JECtSpk"  
 BASE_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json"
 CSV_FILE_NAME = "dehradun_data.csv"
 LOCATION_QUERY = "Dehradun"
