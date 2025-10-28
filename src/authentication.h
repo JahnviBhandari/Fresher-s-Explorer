@@ -10,4 +10,4 @@
 bool register_user(const char *username, const char *password);
 bool login_user(const char *username, const char *password);
 
-#endif // AUTH_H
+#endif 

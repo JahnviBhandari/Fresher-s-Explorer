@@ -21,7 +21,7 @@ typedef struct Graph {
     int vcount;
 } Graph;
 
-void graph_init(Graph *g);
+void graph_in(Graph *g);
 int graph_add_vertex(Graph *g, const char *name);
 void graph_add_edge(Graph *g, int u, int v, double w); // undirected
 void graph_load_from_file(Graph *g, const char *filename); // file format described in README

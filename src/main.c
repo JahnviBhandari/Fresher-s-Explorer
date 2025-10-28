@@ -89,7 +89,7 @@ int main() {
     printf("Fresher's Explorer - Console App\n");
 
     // Load places
-    Place *places = load_places_from_csv(dehradun_data.csv);
+    Place *places = load_places_from_csv("dehradun_data.csv");
     if (!places) {
         printf("No places loaded from %s. Create that file or run python api_fetch.py to generate it.\n", PLACES_CSV);
     } else {
@@ -100,7 +100,7 @@ int main() {
 
     // Load Graph
     Graph g;
-    graph_init(&g);
+    graph_in(&g);
     graph_load_from_file(&g, GRAPH_FILE);
 
     int choice = 0;

@@ -4,7 +4,7 @@
 #include <string.h>
 #include <float.h>
 
-void graph_init(Graph *g) {
+void graph_in(Graph *g) {
     g->vcount = 0;
     for (int i=0;i<MAXV;i++) {
         g->verts[i].id = -1;
@@ -12,13 +12,17 @@ void graph_init(Graph *g) {
     }
 }
 
-int graph_find_index(Graph *g, const char *name) {
-    for (int i=0;i<g->vcount;i++) if (strcmp(g->verts[i].name, name)==0) return i;
+int graph_find(Graph *g, const char *name) {
+    for (int i=0;i<g->vcount;i++){ 
+        if (strcmp(g->verts[i].name, name)==0) {
+            return i;
+        }
+    }
     return -1;
 }
 
 int graph_add_vertex(Graph *g, const char *name) {
-    int idx = graph_find_index(g, name);
+    int idx = graph_find(g, name);
     if (idx != -1) return idx;
     if (g->vcount >= MAXV) return -1;
     int id = g->vcount;
@@ -32,16 +36,22 @@ int graph_add_vertex(Graph *g, const char *name) {
 
 void graph_add_edge(Graph *g, int u, int v, double w) {
     if (u<0 || v<0 || u>=g->vcount || v>=g->vcount) return;
-    Edge *e = malloc(sizeof(Edge)); e->to = v; e->weight = w; e->next = g->verts[u].adj; g->verts[u].adj = e;
-    Edge *e2 = malloc(sizeof(Edge)); e2->to = u; e2->weight = w; e2->next = g->verts[v].adj; g->verts[v].adj = e2;
+
+    Edge *e = malloc(sizeof(Edge));
+    e->to = v; e->weight = w; e->next = g->verts[u].adj;
+    g->verts[u].adj = e;
+
+    Edge *e2 = malloc(sizeof(Edge));
+    e2->to = u; e2->weight = w; e2->next = g->verts[v].adj;
+    g->verts[v].adj = e2;
 }
 
+
 void graph_load_from_file(Graph *g, const char *filename) {
-    // Simple text-based format:
-    // VERTEX <name>
-    // EDGE <name1> <name2> <weight>
     FILE *f = fopen(filename, "r");
-    if (!f) return;
+    if(!f){
+        return;
+    }
     char cmd[64], a[128], b[128];
     double w;
     while (fscanf(f, "%63s", cmd) == 1) {
@@ -58,8 +68,8 @@ void graph_load_from_file(Graph *g, const char *filename) {
                 int v = graph_add_vertex(g, b);
                 graph_add_edge(g, u, v, w);
             }
-        } else {
-            // skip rest of line
+        }
+        else {
             char rest[256]; fgets(rest, sizeof(rest), f);
         }
     }
