@@ -3,22 +3,17 @@ import csv
 import time
 import math
 
-# --- Configuration ---
 API_KEY = "AIzaSyAbptfQ5I0tzRLHbXk5cjkzV7u5JECtSpk"  
-BASE_URL = ""
+BASE_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json"
 CSV_FILE_NAME = "dehradun_data.csv"
 LOCATION_QUERY = "Dehradun"
 
-# List of place types to search
 SEARCH_TYPES = ["cafe", "tourist attraction", "museum", "park", "restaurant", "hotel", "landmark"]
 
-# 📍 Reference point: Graphic Era (Deemed to be University), Clement Town, Bell Road, Dehradun
 REF_LAT, REF_LON = 30.2724, 78.0631
 
 all_spots = []
-collected_place_ids = set()  # To avoid duplicates
-
-# --- Helper Function: Calculate Actual Distance using Haversine Formula ---
+collected_place_ids = set() 
 def calculate_distance_km(lat1, lon1, lat2, lon2):
     R = 6371  # Earth radius in kilometers
     lat1_rad, lon1_rad = math.radians(lat1), math.radians(lon1)
@@ -30,27 +25,24 @@ def calculate_distance_km(lat1, lon1, lat2, lon2):
     distance = R * c
     return round(distance, 2)
 
-# --- Core Function to Fetch Data from API ---
 def fetch_places(query_text):
     global all_spots
     params = {
         "query": f"{query_text} in {LOCATION_QUERY}",
         "key": API_KEY
-    }
-    
-    next_page_token = None
-    
+    }   
+    next_page_token = None   
     while True:
         if next_page_token:
             params['pagetoken'] = next_page_token
             time.sleep(2)  # Required delay for pagetoken
         
-        print(f"🔎 Searching for: {query_text}...")
+        print(f"Searching for: {query_text}")
         response = requests.get(BASE_URL, params=params)
         data = response.json()
         
         if data.get("status") not in ["OK", "ZERO_RESULTS"]:
-            print(f"⚠️ API Error for {query_text}: {data.get('status')}. Message: {data.get('error_message')}")
+            print(f"API Error for {query_text}: {data.get('status')}. Message: {data.get('error_message')}")
             break
 
         for place in data.get("results", []):
@@ -72,15 +64,13 @@ def fetch_places(query_text):
         next_page_token = data.get("next_page_token")
         if not next_page_token:
             break
-
-# --- Main Execution ---
 if __name__ == "__main__":
-    print(f"📍 Using reference point near Graphic Era University: ({REF_LAT}, {REF_LON})\n")
+    print(f"Using reference point near Graphic Era University: ({REF_LAT}, {REF_LON})\n")
 
     for place_type in SEARCH_TYPES:
         fetch_places(place_type)
         
-    print(f"\n✅ Total Unique Spots Collected: {len(all_spots)}")
+    print(f"\nTotal Unique Spots Collected: {len(all_spots)}")
     
     # Write data to CSV
     with open(CSV_FILE_NAME, 'w', newline='', encoding='utf-8') as file:
@@ -95,4 +85,6 @@ if __name__ == "__main__":
                 spot["distance_km"]
             ])
 
-    print(f"\n💾 Data saved to {CSV_FILE_NAME}. You can now run your C program.")
+    print(f"\nData saved to {CSV_FILE_NAME}. You can now run your C program.")
+
+    
