@@ -1,0 +1,203 @@
+VERTEX Pop's_Cafe
+VERTEX Maulyar_BookCafe
+VERTEX Chainsoo_Cafe_&_Kitchen_-_Best_Cafe_Near_Graphic_Era_University_Clement_Town
+VERTEX AMA_Cafe_|_Mall_of_Dehradun
+VERTEX The_white_House_cafe
+VERTEX Cafex
+VERTEX Om_city_park
+VERTEX Birpur_Cantt_Park
+VERTEX Fun_Park_-_DDZ
+VERTEX City_forest_Dehradun
+VERTEX Sailok_Phase_2_-_Park_3
+VERTEX ONGC_Colony_park
+VERTEX Cielo_Fine_Dine_Restaurant_Dehradun
+VERTEX Bajey_cafe_and_restaurant
+VERTEX Geetanjali_Restro_&_Cafe
+VERTEX Barbeque_Nation_-_Mall_Of_Dehradun
+VERTEX Babylon_The_Rooftop_Kitchen
+VERTEX The_Knightsbridge_-_Fine_Dining_and_Family_Restaurant
+VERTEX Dana_Pani_Multicuisine_Restaurant
+VERTEX Tipsy_Alley_–_Premium_Rooftop_Bar_&_Dining_Dehradun
+VERTEX The_Hosteller_Dehradun
+VERTEX Clarks_Inn_Dehradun
+VERTEX The_Social_Stays_Dehradun_(Formerly_ArtBuzz)
+VERTEX The_Luxe_Cottages
+VERTEX Click_Inn_Express
+VERTEX Regenta_Dehradun_By_Royal_Orchid_Hotels_Ltd.
+VERTEX Le_Roi_Dehradun
+VERTEX Hotel_Chandra_Grand
+VERTEX The_Landmark
+VERTEX Sai_Chauraha
+VERTEX Doon_Landmarks
+VERTEX Raipur_Haveli
+VERTEX Dehradun_-_Rishikesh_-_Haridwar_Highway
+VERTEX Saheed_Jagdamba_Prashad_Badoni_Chowk
+VERTEX Saklani_Chowk
+VERTEX Jhandaji_Darbar_Sahib
+VERTEX Raafta_Restro-Cafe
+VERTEX KONA_The_Cafe
+
+EDGE Pop's_Cafe Maulyar_BookCafe 4.96
+EDGE Pop's_Cafe Chainsoo_Cafe_&_Kitchen_-_Best_Cafe_Near_Graphic_Era_University_Clement_Town 3.72
+EDGE Pop's_Cafe AMA_Cafe_|_Mall_of_Dehradun 6.63
+EDGE Maulyar_BookCafe Chainsoo_Cafe_&_Kitchen_-_Best_Cafe_Near_Graphic_Era_University_Clement_Town 1.95
+EDGE Maulyar_BookCafe AMA_Cafe_|_Mall_of_Dehradun 6.38
+EDGE Maulyar_BookCafe The_white_House_cafe 5.97
+EDGE Chainsoo_Cafe_&_Kitchen_-_Best_Cafe_Near_Graphic_Era_University_Clement_Town AMA_Cafe_|_Mall_of_Dehradun 6.69
+EDGE Chainsoo_Cafe_&_Kitchen_-_Best_Cafe_Near_Graphic_Era_University_Clement_Town The_white_House_cafe 1.82
+EDGE Chainsoo_Cafe_&_Kitchen_-_Best_Cafe_Near_Graphic_Era_University_Clement_Town Cafex 3.93
+EDGE AMA_Cafe_|_Mall_of_Dehradun The_white_House_cafe 7.73
+EDGE AMA_Cafe_|_Mall_of_Dehradun Cafex 9.04
+EDGE AMA_Cafe_|_Mall_of_Dehradun Maatea_Cafe 8.47
+EDGE The_white_House_cafe Cafex 4.97
+EDGE The_white_House_cafe Maatea_Cafe 4.44
+EDGE The_white_House_cafe RISING_BREW_CAFE 7.8
+EDGE Cafex Maatea_Cafe 4.4
+EDGE Cafex RISING_BREW_CAFE 8.0
+EDGE Cafex Raafta_Restro-Cafe 6.56
+EDGE Maatea_Cafe RISING_BREW_CAFE 7.01
+EDGE Maatea_Cafe Raafta_Restro-Cafe 2.9
+EDGE Maatea_Cafe KONA_The_Cafe 7.06
+EDGE RISING_BREW_CAFE Raafta_Restro-Cafe 6.21
+EDGE RISING_BREW_CAFE KONA_The_Cafe 4.84
+EDGE Raafta_Restro-Cafe KONA_The_Cafe 6.69
+EDGE Shyam_ji_true_and_travels Largest_Dehradun_Wall_Art_by_DSA_&_Smart_City_honoring_Indian_Scientists 2.98
+EDGE Shyam_ji_true_and_travels APEX_TO_HIMALAYAS 3.97
+EDGE Shyam_ji_true_and_travels Tapkeshwar_Mahadev_Mandir 5.48
+EDGE Largest_Dehradun_Wall_Art_by_DSA_&_Smart_City_honoring_Indian_Scientists APEX_TO_HIMALAYAS 2.16
+EDGE Largest_Dehradun_Wall_Art_by_DSA_&_Smart_City_honoring_Indian_Scientists Tapkeshwar_Mahadev_Mandir 7.22
+EDGE Largest_Dehradun_Wall_Art_by_DSA_&_Smart_City_honoring_Indian_Scientists Kaali_Ghati 9.25
+EDGE APEX_TO_HIMALAYAS Tapkeshwar_Mahadev_Mandir 7.08
+EDGE APEX_TO_HIMALAYAS Kaali_Ghati 6.82
+EDGE APEX_TO_HIMALAYAS Jhanda_Sahib_Talab 1.38
+EDGE Tapkeshwar_Mahadev_Mandir Kaali_Ghati 2.4
+EDGE Tapkeshwar_Mahadev_Mandir Jhanda_Sahib_Talab 6.97
+EDGE Tapkeshwar_Mahadev_Mandir Tea_estate_(chai_bagan) 4.78
+EDGE Kaali_Ghati Jhanda_Sahib_Talab 7.94
+EDGE Kaali_Ghati Tea_estate_(chai_bagan) 5.12
+EDGE Kaali_Ghati Hare_Krishna_Hills 9.27
+EDGE Jhanda_Sahib_Talab Tea_estate_(chai_bagan) 4.79
+EDGE Jhanda_Sahib_Talab Hare_Krishna_Hills 5.67
+EDGE Tea_estate_(chai_bagan) Hare_Krishna_Hills 6.49
+EDGE NWFP_Museum Uttara_Museum_of_Contemporary_Art_(UMCA) 7.08
+EDGE NWFP_Museum Bhuyiyan_Raja_Panchayati_Mandir 5.7
+EDGE NWFP_Museum FRI_Dehradun 2.89
+EDGE Uttara_Museum_of_Contemporary_Art_(UMCA) Bhuyiyan_Raja_Panchayati_Mandir 3.31
+EDGE Uttara_Museum_of_Contemporary_Art_(UMCA) FRI_Dehradun 6.58
+EDGE Uttara_Museum_of_Contemporary_Art_(UMCA) SOHAM_Himalayan_Centre 15.69
+EDGE Bhuyiyan_Raja_Panchayati_Mandir FRI_Dehradun 8.82
+EDGE Bhuyiyan_Raja_Panchayati_Mandir SOHAM_Himalayan_Centre 13.52
+EDGE Bhuyiyan_Raja_Panchayati_Mandir FRI_forest_research_Institute 9.07
+EDGE FRI_Dehradun SOHAM_Himalayan_Centre 12.2
+EDGE FRI_Dehradun FRI_forest_research_Institute 4.89
+EDGE FRI_Dehradun Mussoorie_Heritage_Centre 12.35
+EDGE SOHAM_Himalayan_Centre FRI_forest_research_Institute 12.66
+EDGE SOHAM_Himalayan_Centre Mussoorie_Heritage_Centre 1.85
+EDGE SOHAM_Himalayan_Centre Himalayan_Cultural_Center_Uttarakhand 10.31
+EDGE FRI_forest_research_Institute Mussoorie_Heritage_Centre 12.66
+EDGE FRI_forest_research_Institute Himalayan_Cultural_Center_Uttarakhand 2.21
+EDGE Mussoorie_Heritage_Centre Himalayan_Cultural_Center_Uttarakhand 9.03
+EDGE Chhat_park Choudhary_niwas 5.0
+EDGE Chhat_park Om_city_park 2.18
+EDGE Chhat_park Birpur_Cantt_Park 7.03
+EDGE Choudhary_niwas Om_city_park 4.17
+EDGE Choudhary_niwas Birpur_Cantt_Park 7.73
+EDGE Choudhary_niwas Fun_Park_-_DDZ 10.58
+EDGE Om_city_park Birpur_Cantt_Park 8.06
+EDGE Om_city_park Fun_Park_-_DDZ 11.38
+EDGE Om_city_park City_forest_Dehradun 9.81
+EDGE Birpur_Cantt_Park Fun_Park_-_DDZ 5.69
+EDGE Birpur_Cantt_Park City_forest_Dehradun 5.26
+EDGE Birpur_Cantt_Park Sailok_Phase_2_-_Park_3 5.11
+EDGE Fun_Park_-_DDZ City_forest_Dehradun 3.45
+EDGE Fun_Park_-_DDZ Sailok_Phase_2_-_Park_3 7.22
+EDGE Fun_Park_-_DDZ ONGC_Colony_park 5.44
+EDGE City_forest_Dehradun Sailok_Phase_2_-_Park_3 6.32
+EDGE City_forest_Dehradun ONGC_Colony_park 6.48
+EDGE Sailok_Phase_2_-_Park_3 ONGC_Colony_park 3.31
+EDGE Cielo_Fine_Dine_Restaurant_Dehradun Bajey_cafe_and_restaurant 4.27
+EDGE Cielo_Fine_Dine_Restaurant_Dehradun Geetanjali_Restro_&_Cafe 9.49
+EDGE Cielo_Fine_Dine_Restaurant_Dehradun Barbeque_Nation_-_Mall_Of_Dehradun 3.53
+EDGE Bajey_cafe_and_restaurant Geetanjali_Restro_&_Cafe 7.56
+EDGE Bajey_cafe_and_restaurant Barbeque_Nation_-_Mall_Of_Dehradun 5.99
+EDGE Bajey_cafe_and_restaurant Babylon_The_Rooftop_Kitchen 2.41
+EDGE Geetanjali_Restro_&_Cafe Barbeque_Nation_-_Mall_Of_Dehradun 7.8
+EDGE Geetanjali_Restro_&_Cafe Babylon_The_Rooftop_Kitchen 4.65
+EDGE Geetanjali_Restro_&_Cafe The_Knightsbridge_-_Fine_Dining_and_Family_Restaurant 3.52
+EDGE Barbeque_Nation_-_Mall_Of_Dehradun Babylon_The_Rooftop_Kitchen 6.87
+EDGE Barbeque_Nation_-_Mall_Of_Dehradun The_Knightsbridge_-_Fine_Dining_and_Family_Restaurant 8.07
+EDGE Barbeque_Nation_-_Mall_Of_Dehradun Dana_Pani_Multicuisine_Restaurant 6.45
+EDGE Babylon_The_Rooftop_Kitchen The_Knightsbridge_-_Fine_Dining_and_Family_Restaurant 3.44
+EDGE Babylon_The_Rooftop_Kitchen Dana_Pani_Multicuisine_Restaurant 4.43
+EDGE Babylon_The_Rooftop_Kitchen Tipsy_Alley_–_Premium_Rooftop_Bar_&_Dining_Dehradun 7.96
+EDGE The_Knightsbridge_-_Fine_Dining_and_Family_Restaurant Dana_Pani_Multicuisine_Restaurant 4.29
+EDGE The_Knightsbridge_-_Fine_Dining_and_Family_Restaurant Tipsy_Alley_–_Premium_Rooftop_Bar_&_Dining_Dehradun 8.64
+EDGE Dana_Pani_Multicuisine_Restaurant Tipsy_Alley_–_Premium_Rooftop_Bar_&_Dining_Dehradun 7.55
+EDGE The_Hosteller_Dehradun Clarks_Inn_Dehradun 2.5
+EDGE The_Hosteller_Dehradun The_Social_Stays_Dehradun_(Formerly_ArtBuzz) 3.27
+EDGE The_Hosteller_Dehradun The_Luxe_Cottages 9.66
+EDGE Clarks_Inn_Dehradun The_Social_Stays_Dehradun_(Formerly_ArtBuzz) 5.29
+EDGE Clarks_Inn_Dehradun The_Luxe_Cottages 9.43
+EDGE Clarks_Inn_Dehradun Click_Inn_Express 4.76
+EDGE The_Social_Stays_Dehradun_(Formerly_ArtBuzz) The_Luxe_Cottages 6.6
+EDGE The_Social_Stays_Dehradun_(Formerly_ArtBuzz) Click_Inn_Express 6.53
+EDGE The_Social_Stays_Dehradun_(Formerly_ArtBuzz) Regenta_Dehradun_By_Royal_Orchid_Hotels_Ltd. 6.76
+EDGE The_Luxe_Cottages Click_Inn_Express 8.68
+EDGE The_Luxe_Cottages Regenta_Dehradun_By_Royal_Orchid_Hotels_Ltd. 9.02
+EDGE The_Luxe_Cottages Le_Roi_Dehradun 8.74
+EDGE Click_Inn_Express Regenta_Dehradun_By_Royal_Orchid_Hotels_Ltd. 4.01
+EDGE Click_Inn_Express Le_Roi_Dehradun 1.5
+EDGE Click_Inn_Express Hotel_Chandra_Grand 4.18
+EDGE Regenta_Dehradun_By_Royal_Orchid_Hotels_Ltd. Le_Roi_Dehradun 2.43
+EDGE Regenta_Dehradun_By_Royal_Orchid_Hotels_Ltd. Hotel_Chandra_Grand 5.66
+EDGE Le_Roi_Dehradun Hotel_Chandra_Grand 4.43
+EDGE The_Landmark Sai_Chauraha 5.08
+EDGE The_Landmark Doon_Landmarks 3.88
+EDGE The_Landmark Raipur_Haveli 5.62
+EDGE Sai_Chauraha Doon_Landmarks 1.9
+EDGE Sai_Chauraha Raipur_Haveli 3.67
+EDGE Sai_Chauraha Dehradun_-_Rishikesh_-_Haridwar_Highway 4.05
+EDGE Doon_Landmarks Raipur_Haveli 5.86
+EDGE Doon_Landmarks Dehradun_-_Rishikesh_-_Haridwar_Highway 4.37
+EDGE Doon_Landmarks Saheed_Jagdamba_Prashad_Badoni_Chowk 5.8
+EDGE Raipur_Haveli Dehradun_-_Rishikesh_-_Haridwar_Highway 6.04
+EDGE Raipur_Haveli Saheed_Jagdamba_Prashad_Badoni_Chowk 6.96
+EDGE Raipur_Haveli Saklani_Chowk 5.18
+EDGE Dehradun_-_Rishikesh_-_Haridwar_Highway Saheed_Jagdamba_Prashad_Badoni_Chowk 8.38
+EDGE Dehradun_-_Rishikesh_-_Haridwar_Highway Saklani_Chowk 2.83
+EDGE Dehradun_-_Rishikesh_-_Haridwar_Highway Jhandaji_Darbar_Sahib 7.05
+EDGE Saheed_Jagdamba_Prashad_Badoni_Chowk Saklani_Chowk 8.48
+EDGE Saheed_Jagdamba_Prashad_Badoni_Chowk Jhandaji_Darbar_Sahib 5.16
+EDGE Saklani_Chowk Jhandaji_Darbar_Sahib 6.65
+EDGE Pop's_Cafe Shyam_ji_true_and_travels 5.64
+EDGE Pop's_Cafe NWFP_Museum 3.67
+EDGE Shyam_ji_true_and_travels NWFP_Museum 7.92
+EDGE Shyam_ji_true_and_travels Chhat_park 2.63
+EDGE NWFP_Museum Chhat_park 6.04
+EDGE NWFP_Museum Choudhary_niwas 8.03
+EDGE Chhat_park Choudhary_niwas 2.09
+EDGE Chhat_park Cielo_Fine_Dine_Restaurant_Dehradun 3.5
+EDGE Choudhary_niwas Cielo_Fine_Dine_Restaurant_Dehradun 3.46
+EDGE Choudhary_niwas Bajey_cafe_and_restaurant 1.72
+EDGE Cielo_Fine_Dine_Restaurant_Dehradun Bajey_cafe_and_restaurant 5.44
+EDGE Cielo_Fine_Dine_Restaurant_Dehradun Geetanjali_Restro_&_Cafe 6.16
+EDGE Bajey_cafe_and_restaurant Geetanjali_Restro_&_Cafe 6.47
+EDGE Bajey_cafe_and_restaurant The_Landmark 5.11
+EDGE Geetanjali_Restro_&_Cafe The_Landmark 2.89
+EDGE Geetanjali_Restro_&_Cafe Sai_Chauraha 4.59
+EDGE The_Landmark Sai_Chauraha 4.5
+EDGE The_Landmark Maulyar_BookCafe 2.18
+EDGE Sai_Chauraha Maulyar_BookCafe 5.06
+EDGE Sai_Chauraha Chainsoo_Cafe_&_Kitchen_-_Best_Cafe_Near_Graphic_Era_University_Clement_Town 2.16
+EDGE Maulyar_BookCafe Chainsoo_Cafe_&_Kitchen_-_Best_Cafe_Near_Graphic_Era_University_Clement_Town 2.46
+EDGE Maulyar_BookCafe AMA_Cafe_|_Mall_of_Dehradun 9.29
+EDGE Chainsoo_Cafe_&_Kitchen_-_Best_Cafe_Near_Graphic_Era_University_Clement_Town AMA_Cafe_|_Mall_of_Dehradun 8.61
+EDGE Chainsoo_Cafe_&_Kitchen_-_Best_Cafe_Near_Graphic_Era_University_Clement_Town The_white_House_cafe 3.29
+EDGE AMA_Cafe_|_Mall_of_Dehradun The_white_House_cafe 5.3
+EDGE AMA_Cafe_|_Mall_of_Dehradun Cafex 7.08
+EDGE The_white_House_cafe Cafex 4.35
+EDGE Maulyar_BookCafe Shyam_ji_true_and_travels 2.79
+EDGE Fun_Park_-_DDZ The_Luxe_Cottages 2.28
+EDGE Om_city_park Sailok_Phase_2_-_Park_3 4.77
+EDGE Click_Inn_Express The_Social_Stays_Dehradun_(Formerly_ArtBuzz) 5.52
+EDGE The_Social_Stays_Dehradun_(Formerly_ArtBuzz) FRI_forest_research_Institute 4.35
